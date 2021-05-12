@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>MOR Swap</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/index.css">
+        <script type="text/javascript" src="js/tronweb.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+                <script type="text/javascript" src="js/swapTrxToMor.js"></script>
+            <script type="text/javascript" src="js/connectWallet.js"></script>
+        <link rel="icon" type="image/png" href="img/mor.png" />
+
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-inside">
+                <div class="header-left">
+                    <a href="index.html" class="header-left-a"><img src="img/mor.png" class="mor-infos-img"></a>
+                    <div class="header-left-items">
+                        <div class="header-left-item">
+                            <a aria-current="page" class="header-left-item" id="swap-nav-link" href="index.html@swap=TRX_MOR.html#/swap">MOORE Swap</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="hearder-right-items">
+                        <span class="sc-dliRfk dwtyhd"></span>
+                        <span class="mor-infos" style="width: 100%;">
+                            <img src="img/mor.png" class="mor-infos-img">
+                            <div id="morbalance">0</div>
+                        </span>
+                        <div class="div-button-connect" style="pointer-events: auto;">
+                            <button id="connect-wallet" class="button-connect button-connect2" onclick="connectWallet()">
+                                <p class="label-button-connect" id="walletaddress">Connect to a wallet</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="availables_swaps" id="availables_swaps">
+            <div class="card_availables_swaps" >
+                <h3 style="text-align:center;">Availables swaps</h3>
+                <div style="text-align:center;">
+                    <a href="index.html@swap=USDT_MOR.html">USDT <> MOR</a> - <a href="index.html@swap=TRX_MOR.html">TRX -> MOR</a>
+                </div>
+                <br/>
+            </div>
+        </div>
+
+        
+                <!-- divTrxToMor -->
+        <div class="divTrxToMor" id="divTrxToMor">
+            <div class="card TronLinkMessageTrx" id="TronLinkMessageTrx" style="visibility: hidden; text-align: center;"></div>
+            <br/>
+            <div class="card">
+                <div id="swap-page" class="swap-page">
+                    <div class="swap-form">
+                    <div id="swap-currency-output" class="box">
+                            <div class="box-inside">
+                                <div class="box-header">
+                                    <div class="box-header-inside">
+                                        <div class="box-label">From</div>
+                                        <div id="swap_trx_trx_balance" class="box-balance" style="display: inline; cursor: pointer;">Balance: 0</div>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <input id="trx_mor_in" onkeyup="swap_trx_to_mor()" class="box-input" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
+                                    <button class="box-swap-max-button" onclick="maxtrx()">MAX</button>
+                                    <button class="kiauPI box-select">
+                                        <span class="box-select-span">
+                                            <img src="img/trx.png" class="box-token-img">
+                                            <span class="box-token-list">TRX</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sc-ifAKCX csUrYZ">
+                            <div class="sc-gqjmRU sc-jTzLTM sc-cSHVUG ihqxYZ" style="padding: 0px 1rem;">
+                                <!--<div class="sc-rBLzX dQBVju" onclick="switchSwap()">
+                                    <svg _ngcontent-big-c148="" width="24" height="24" class="token-swap-input-button-image">
+                                        <use _ngcontent-big-c148="" xlink:href="img/change.svg#change"></use>
+                                    </svg>
+                                </div>-->
+                            </div>
+                        </div>
+                        <div id="swap-currency-input" class="box">
+                            <div class="box-inside">
+                                <div class="box-header">
+                                    <div class="box-header-inside">
+                                        <div class="box-label">To</div>
+                                        <div id="swap_trx_mor_balance" class="box-balance" style="display: inline; cursor: pointer;">Balance: 0</div>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <input disabled id="trx_mor_out" class="box-input" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
+                                    
+                                    <button class="kiauPI box-select">
+                                        <span class="box-select-span">
+                                            <img src="img/mor.png" class="box-token-img">
+                                            <span class="box-token-list">MOR</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sc-gqjmRU sc-fAjcbJ OrWyB">
+                            <div class="sc-ifAKCX eDXtKs"></div>
+                        </div>
+                    </div>
+                    <div id="formResult_trxmor" style="color: red;font-size: 12px;text-align: center;">
+                                        </div>
+                    <div class="margin-swap-button">
+                            <input class="formAction_trxmor" id="formAction_trxmor" name="formAction_trxmor" type="hidden" value="swapTrxToMor">
+                            <input class="formTrxToSend" id="formTrxToSend" name="formTrxToSend" type="hidden" value="0">
+                            <input class="formTrxSender" id="formTrxSender" name="formTrxSender" type="hidden" value="">
+                            <button disabled id="swap-button_trxmor" class="swap-button_trxmor"   style="background: #808080;"> 
+                                <div class="css-10ob8xa">Enter an amount</div>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="GeneralInfos" id="GeneralInfos">
+            <div class="card" >
+                <h3 style="text-align:center;">Recommendations</h3>
+                1/ Please make sure you have enough bandwidth and energy on your wallet, before you swap
+                <br/><br/>
+                2/ Max cap per transaction is :
+                <br/>
+                <ul>
+                    <li>1000 USDT</li>
+                    <li>10000 MOR</li>
+                    <li>20000 TRX</li>
+                </ul>
+            </div>
+        </div>           
+    </body>
+</html>
